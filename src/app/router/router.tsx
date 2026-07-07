@@ -1,5 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
 
+import { AdminLayout } from '@/app/layouts/admin-layout'
+import { PublicLayout } from '@/app/layouts/public-layout'
+import { ProtectedRoute } from '@/features/auth/ui/protected-route'
 import { AdminApplicationsPage } from '@/pages/admin/admin-applications-page'
 import { AdminBookingsPage } from '@/pages/admin/admin-bookings-page'
 import { AdminDashboardPage } from '@/pages/admin/admin-dashboard-page'
@@ -24,44 +27,50 @@ import { ROUTES } from '@/shared/config/routes'
 export const router = createBrowserRouter([
   {
     path: ROUTES.home,
-    element: <HomePage />,
+    element: <PublicLayout />,
     errorElement: <NotFoundPage />,
-  },
-  {
-    path: ROUTES.catalog,
-    element: <CatalogPage />,
-  },
-  {
-    path: ROUTES.product,
-    element: <ProductPage />,
-  },
-  {
-    path: ROUTES.masters,
-    element: <MastersPage />,
-  },
-  {
-    path: ROUTES.master,
-    element: <MasterPage />,
-  },
-  {
-    path: ROUTES.shelves,
-    element: <ShelvesPage />,
-  },
-  {
-    path: ROUTES.giftQuiz,
-    element: <GiftQuizPage />,
-  },
-  {
-    path: ROUTES.rentShelf,
-    element: <RentShelfPage />,
-  },
-  {
-    path: ROUTES.events,
-    element: <EventsPage />,
-  },
-  {
-    path: ROUTES.favorites,
-    element: <FavoritesPage />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: ROUTES.catalog.slice(1),
+        element: <CatalogPage />,
+      },
+      {
+        path: ROUTES.product.slice(1),
+        element: <ProductPage />,
+      },
+      {
+        path: ROUTES.masters.slice(1),
+        element: <MastersPage />,
+      },
+      {
+        path: ROUTES.master.slice(1),
+        element: <MasterPage />,
+      },
+      {
+        path: ROUTES.shelves.slice(1),
+        element: <ShelvesPage />,
+      },
+      {
+        path: ROUTES.giftQuiz.slice(1),
+        element: <GiftQuizPage />,
+      },
+      {
+        path: ROUTES.rentShelf.slice(1),
+        element: <RentShelfPage />,
+      },
+      {
+        path: ROUTES.events.slice(1),
+        element: <EventsPage />,
+      },
+      {
+        path: ROUTES.favorites.slice(1),
+        element: <FavoritesPage />,
+      },
+    ],
   },
   {
     path: ROUTES.adminLogin,
@@ -69,31 +78,42 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.adminDashboard,
-    element: <AdminDashboardPage />,
-  },
-  {
-    path: ROUTES.adminProducts,
-    element: <AdminProductsPage />,
-  },
-  {
-    path: ROUTES.adminMasters,
-    element: <AdminMastersPage />,
-  },
-  {
-    path: ROUTES.adminShelves,
-    element: <AdminShelvesPage />,
-  },
-  {
-    path: ROUTES.adminApplications,
-    element: <AdminApplicationsPage />,
-  },
-  {
-    path: ROUTES.adminBookings,
-    element: <AdminBookingsPage />,
-  },
-  {
-    path: ROUTES.adminEvents,
-    element: <AdminEventsPage />,
+    element: <ProtectedRoute />,
+    children: [
+      {
+        element: <AdminLayout />,
+        children: [
+          {
+            index: true,
+            element: <AdminDashboardPage />,
+          },
+          {
+            path: 'products',
+            element: <AdminProductsPage />,
+          },
+          {
+            path: 'masters',
+            element: <AdminMastersPage />,
+          },
+          {
+            path: 'shelves',
+            element: <AdminShelvesPage />,
+          },
+          {
+            path: 'applications',
+            element: <AdminApplicationsPage />,
+          },
+          {
+            path: 'bookings',
+            element: <AdminBookingsPage />,
+          },
+          {
+            path: 'events',
+            element: <AdminEventsPage />,
+          },
+        ],
+      },
+    ],
   },
   {
     path: '*',
