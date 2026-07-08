@@ -9,12 +9,4 @@ export const ROUTES = {
   rentShelf: '/rent-shelf',
   events: '/events',
   favorites: '/favorites',
-  adminLogin: '/admin-login',
-  adminDashboard: '/admin',
-  adminProducts: '/admin/products',
-  adminMasters: '/admin/masters',
-  adminShelves: '/admin/shelves',
-  adminApplications: '/admin/applications',
-  adminBookings: '/admin/bookings',
-  adminEvents: '/admin/events',
 } as const

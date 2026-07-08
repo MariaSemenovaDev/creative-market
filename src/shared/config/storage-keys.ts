@@ -4,5 +4,4 @@ export const STORAGE_KEYS = {
   shelves: 'creative_market_shelves',
   bookings: 'creative_market_bookings',
   rentalRequests: 'creative_market_rental_requests',
-  authUser: 'creative_market_auth_user',
 } as const

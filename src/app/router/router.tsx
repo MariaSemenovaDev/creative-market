@@ -1,16 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import { AdminLayout } from '@/app/layouts/admin-layout'
 import { PublicLayout } from '@/app/layouts/public-layout'
-import { ProtectedRoute } from '@/features/auth/ui/protected-route'
-import { AdminApplicationsPage } from '@/pages/admin/admin-applications-page'
-import { AdminBookingsPage } from '@/pages/admin/admin-bookings-page'
-import { AdminDashboardPage } from '@/pages/admin/admin-dashboard-page'
-import { AdminEventsPage } from '@/pages/admin/admin-events-page'
-import { AdminLoginPage } from '@/pages/admin/admin-login-page'
-import { AdminMastersPage } from '@/pages/admin/admin-masters-page'
-import { AdminProductsPage } from '@/pages/admin/admin-products-page'
-import { AdminShelvesPage } from '@/pages/admin/admin-shelves-page'
 import { CatalogPage } from '@/pages/public/catalog-page'
 import { EventsPage } from '@/pages/public/events-page'
 import { FavoritesPage } from '@/pages/public/favorites-page'
@@ -69,49 +59,6 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.favorites.slice(1),
         element: <FavoritesPage />,
-      },
-    ],
-  },
-  {
-    path: ROUTES.adminLogin,
-    element: <AdminLoginPage />,
-  },
-  {
-    path: ROUTES.adminDashboard,
-    element: <ProtectedRoute />,
-    children: [
-      {
-        element: <AdminLayout />,
-        children: [
-          {
-            index: true,
-            element: <AdminDashboardPage />,
-          },
-          {
-            path: 'products',
-            element: <AdminProductsPage />,
-          },
-          {
-            path: 'masters',
-            element: <AdminMastersPage />,
-          },
-          {
-            path: 'shelves',
-            element: <AdminShelvesPage />,
-          },
-          {
-            path: 'applications',
-            element: <AdminApplicationsPage />,
-          },
-          {
-            path: 'bookings',
-            element: <AdminBookingsPage />,
-          },
-          {
-            path: 'events',
-            element: <AdminEventsPage />,
-          },
-        ],
       },
     ],
   },
