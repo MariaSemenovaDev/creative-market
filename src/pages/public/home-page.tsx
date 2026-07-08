@@ -21,6 +21,8 @@ const upcomingBlocks = [
   },
 ] as const
 
+const brandAssetBase = `${import.meta.env.BASE_URL}references/brand/`
+
 export function HomePage() {
   return (
     <>
@@ -30,7 +32,7 @@ export function HomePage() {
             <div className="pointer-events-none absolute -right-8 inset-y-0 hidden w-[48%] lg:block">
               <div className="relative ml-auto h-full w-auto max-w-none">
                 <img
-                  src="/references/brand/1addbadc-9303-4819-9be2-cdb8ee3c00fb.png"
+                  src={`${brandAssetBase}1addbadc-9303-4819-9be2-cdb8ee3c00fb.png`}
                   alt="Иллюстрация фасада Креатив Маркета"
                   className="relative ml-auto h-full w-auto max-w-none object-contain object-top opacity-90"
                 />
@@ -38,7 +40,7 @@ export function HomePage() {
               </div>
               <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#135592] to-transparent" />
               <img
-                src="/references/brand/balloon-cutout.png"
+                src={`${brandAssetBase}balloon-cutout.png`}
                 alt=""
                 aria-hidden="true"
                 className="balloon-float absolute left-[18%] top-[6%] w-[26%] opacity-95"
@@ -161,7 +163,7 @@ export function HomePage() {
           <div className="order-2 lg:order-1">
             <figure className="border border-[rgba(243,229,206,0.3)] bg-[rgba(255,255,255,0.04)] p-4">
               <img
-                src="/references/brand/IMG_7247.JPG"
+                src={`${brandAssetBase}IMG_7247.JPG`}
                 alt="Горизонтальный брендовый баннер"
                 className="w-full object-cover"
               />

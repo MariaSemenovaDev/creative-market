@@ -47,7 +47,7 @@ export function PublicLayout() {
                   to={link.to}
                   end={link.end}
                   className={({ isActive }) =>
-                    `group relative inline-grid pb-1 font-[var(--font-mono)] text-[11px] uppercase tracking-[0.18em] transition ${
+                    `group relative inline-grid whitespace-nowrap pb-1 font-[var(--font-mono)] text-[11px] uppercase tracking-[0.18em] transition ${
                       isActive
                         ? 'text-[var(--color-brand-blue-deep)]'
                         : 'text-[var(--color-ink)] hover:text-[var(--color-brand-blue)]'
